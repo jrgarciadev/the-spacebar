@@ -1,3 +1,6 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\ArticleController::homepage
+news:
+    path: /news/{slug}
+    controller: App\Controller\ArticleController::show
