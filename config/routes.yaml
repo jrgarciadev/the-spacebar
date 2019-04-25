@@ -8,3 +8,6 @@ article_toggle_heart:
     path: /news/{slug}/heart
     controller: App\Controller\ArticleController::toggleArticleHeart
     methods: POST
+admin_article_new:
+    path: /admin/article/new
+    controller: App\Controller\ArticleAdminController::new

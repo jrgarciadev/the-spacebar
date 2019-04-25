@@ -11,6 +11,7 @@
         "symfony/dotenv": "4.2.*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.2.*",
+        "symfony/orm-pack": "^1.0",
         "symfony/twig-bundle": "4.2.*",
         "symfony/yaml": "4.2.*"
     },
@@ -61,9 +62,11 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "3.0.2",
         "easycorp/easy-log-handler": "^1.0.7",
         "sensiolabs/security-checker": "^5.0",
         "symfony/debug-bundle": "*",
+        "symfony/maker-bundle": "^1.11",
         "symfony/monolog-bundle": "^3.0",
         "symfony/profiler-pack": "*",
         "symfony/var-dumper": "*"

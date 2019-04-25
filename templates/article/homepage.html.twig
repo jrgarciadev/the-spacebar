@@ -3,9 +3,7 @@
 {% block body %}
     <div class="container">
         <div class="row">
-
             <!-- Article List -->
-
             <div class="col-sm-12 col-md-8">
 
                 <!-- H1 Article -->
@@ -15,23 +13,25 @@
                         <h1 class="text-center mt-2">Ursid Meteor Shower: <br>Healthier than a regular shower?</h1>
                     </div>
                 </a>
-
                 <!-- Supporting Articles -->
 
+                {% for article in articles %}
                 <div class="article-container my-1">
-                    <a href="{{ path('news', { slug: 'why-asteroids-taste-like-bacon' }) }}">
-                        <img class="article-img" src="{{ asset('images/asteroid.jpeg') }}">
+                    <a href="{{ path('news', { slug: article.slug }) }}">
+                        <img class="article-img" src="{{ asset(article.imagePath) }}">
                         <div class="article-title d-inline-block pl-3 align-middle">
-                            <span>Why do Asteroids Taste Like Bacon?</span>
+                            <span>{{ article.title }}</span>
                             <br>
-                            <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>
-                            <span class="pl-5 article-details float-right"> 3 hours ago</span>
+                            <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> {{ article.author }} </span>
+                            <span class="pl-5 article-details float-right">{{ article.publishedAt ? article.publishedAt|date('Y-m-d') : 'unpublished' }}</span>
                         </div>
                     </a>
                 </div>
+                {% endfor %}
 
+            {#
                 <div class="article-container my-1">
-                    <a href="{{ path('news', { slug: 'life-on-planet-mercury' }) }}">
+                    <a href="#">
                         <img class="article-img"  src="{{ asset('images/mercury.jpeg') }}">
                         <div class="article-title d-inline-block pl-3 align-middle">
                             <span>Life on Planet Mercury: <br> Tan, Relaxing and Fabulous</span>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="article-container my-1">
-                    <a href="{{ path('news', { slug: 'light-speed-travel' }) }}">
+                    <a href="#">
                         <img class="article-img" src="{{ asset('images/lightspeed.png') }}">
                         <div class="article-title d-inline-block pl-3 align-middle">
                             <span>Light Speed Travel: <br> Fountain of Youth or Fallacy</span>
@@ -53,14 +53,11 @@
                         </div>
                     </a>
                 </div>
-
+            #}
             </div>
-
             <!-- Right bar ad space -->
-
-
             <div class="col-sm-12 col-md-4 text-center">
-                <div class="mx-auto mt-1 pb-2 pt-2">
+                <div class="mx-auto ad-space mt-1 pb-2 pt-2">
                     <img class="advertisement-img" src="{{ asset('images/space-ice.png') }}">
                     <p><span class="advertisement-text">New:</span> Space Ice Cream!</p>
                     <button class="btn btn-info">Buy Now!</button>
