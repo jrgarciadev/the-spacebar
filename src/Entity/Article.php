@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
 class Article
 {
+    use TimestampableEntity;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -63,7 +65,7 @@ class Article
 
     public function incrementHeartCount(): self
     {
-        $this->heart_count = $this->heart_count + 1;
+        $this->heartCount = $this->heartCount + 1;
         return $this;
     }
     public function getTitle(): ?string
@@ -149,4 +151,5 @@ class Article
 
         return $this;
     }
+
 }
